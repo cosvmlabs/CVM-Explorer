@@ -1,5 +1,5 @@
 {
-  "name": "dexplorer",
+  "name": "CVM-Explorer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -50,7 +50,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arifintahu/dexplorer.git"
+    "url": "https://github.com/cosvmlabs/CVM-Explorer.git"
   },
   "lint-staged": {
     "*.+(ts|tsx)": "eslint --fix",
