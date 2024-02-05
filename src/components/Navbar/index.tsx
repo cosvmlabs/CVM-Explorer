@@ -109,7 +109,7 @@ export default function Navbar() {
           <Box>
             <Skeleton isLoaded={isLoadedSkeleton}>
               <Heading size="xs">
-                Chain ID : 
+                Chain ID:  
                 {newBlock?.header.chainId
                   ? newBlock?.header.chainId
                   : status?.nodeInfo.network}
