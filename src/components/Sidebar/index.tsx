@@ -49,17 +49,12 @@ const LinkItems: Array<LinkItemProps> = [
 ]
 const RefLinkItems: Array<LinkItemProps> = [
   {
-    name: 'Github',
+    name: 'EVM Explorer',
     icon: FiGithub,
-    route: 'https://github.com/arifintahu/dexplorer',
+    route: 'https://explorer.cosvm.net',
     isBlank: true,
   },
-  {
-    name: 'Report Issues',
-    icon: FiAlertCircle,
-    route: 'https://github.com/arifintahu/dexplorer/issues',
-    isBlank: true,
-  },
+
 ]
 
 export default function Sidebar({ children }: { children: ReactNode }) {
@@ -127,7 +122,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             justifyContent="space-between"
           >
             <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-              Dexplorer
+              CVM Explorer
             </Text>
             <CloseButton
               display={{ base: 'flex', md: 'none' }}
@@ -264,7 +259,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       />
 
       <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Dexplorer
+        CVM Explorer
       </Text>
     </Flex>
   )
