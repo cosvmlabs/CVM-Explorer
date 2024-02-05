@@ -25,12 +25,8 @@ import { validateConnection, connectWebsocketClient } from '@/rpc/client'
 
 const chainList = [
   {
-    name: 'Cosmos Hub',
-    rpc: 'https://cosmoshub-rpc.lavenderfive.com',
-  },
-  {
-    name: 'Osmosis',
-    rpc: 'https://rpc-osmosis.ecostake.com',
+    name: 'CosVM Labs',
+    rpc: 'https://cvm.cosvm.net',
   },
 ]
 
@@ -125,7 +121,7 @@ export default function Connect() {
             Dexplorer
           </Heading>
           <Text as={'h2'} fontSize="lg" textAlign={'center'} mb={5}>
-            Disposable Cosmos SDK Chain Explorer
+            Disposable CosVM Chain Explorer
           </Text>
           <Stack
             direction={{ base: 'column', md: 'row' }}
@@ -145,8 +141,8 @@ export default function Connect() {
                 id={'address'}
                 type={'url'}
                 required
-                placeholder={'RPC Address'}
-                aria-label={'RPC Address'}
+                placeholder={'https://cvm.cosvm.net'}
+                aria-label={'https://cvm.cosvm.net'}
                 value={address}
                 disabled={state !== 'initial'}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
