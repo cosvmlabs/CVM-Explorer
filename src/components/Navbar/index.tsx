@@ -116,7 +116,7 @@ export default function Navbar() {
             </Skeleton>
             <Skeleton isLoaded={isLoadedSkeleton}>
               <Text pt="2" fontSize="sm">
-                {address}
+                CVM Mainnet Explorer
               </Text>
             </Skeleton>
           </Box>
