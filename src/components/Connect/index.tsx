@@ -91,8 +91,8 @@ export default function Connect() {
   return (
     <>
       <Head>
-        <title>Dexplorer | Connect</title>
-        <meta name="description" content="Dexplorer | Connect to RPC Address" />
+        <title>CVM | SCAN</title>
+        <meta name="description" content="CVM | SCAN" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -121,7 +121,7 @@ export default function Connect() {
             Dexplorer
           </Heading>
           <Text as={'h2'} fontSize="lg" textAlign={'center'} mb={5}>
-            Disposable CosVM Chain Explorer
+            CosVM Chain Explorer
           </Text>
           <Stack
             direction={{ base: 'column', md: 'row' }}
@@ -144,7 +144,7 @@ export default function Connect() {
                 placeholder={'https://cvm.cosvm.net'}
                 aria-label={'https://cvm.cosvm.net'}
                 value={address}
-                disabled={state !== 'initial'}
+                enabled={state !== 'initial'}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setAddress(e.target.value)
                 }
