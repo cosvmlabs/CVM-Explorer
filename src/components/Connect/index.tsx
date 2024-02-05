@@ -144,7 +144,7 @@ export default function Connect() {
                 placeholder={'https://cvm.cosvm.net'}
                 aria-label={'https://cvm.cosvm.net'}
                 value={address}
-                enabled={state !== 'initial'}
+                disabled={state !== 'initial'}
                 onChange={(e: ChangeEvent<HTMLInputElement>) =>
                   setAddress(e.target.value)
                 }
