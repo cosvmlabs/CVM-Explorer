@@ -15,24 +15,27 @@ import {
   FlexProps,
   Button,
   Heading,
+  Tooltip,
 } from '@chakra-ui/react'
+
+import { FiMenu } from 'react-icons/fi'
 import {
-  FiHome,
-  FiBox,
-  FiCompass,
-  FiStar,
-  FiSliders,
-  FiMenu,
-  FiLogOut,
-  FiGithub,
-  FiAlertCircle,
-} from 'react-icons/fi'
+  FaTwitter,
+  FaFacebook,
+  FaReddit,
+  FaMedium,
+  FaHome,
+  FaCompass,
+  FaStar,
+  FaSlidersH,
+  FaGithub,
+} from 'react-icons/fa'
 import { IconType } from 'react-icons'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { selectSubsNewBlock, selectSubsTxEvent } from '@/store/streamSlice'
 import { useSelector } from 'react-redux'
-import { LS_RPC_ADDRESS } from '@/utils/constant'
+import { BsBoxSeamFill } from 'react-icons/bs'
 
 interface LinkItemProps {
   name: string
@@ -41,20 +44,19 @@ interface LinkItemProps {
   isBlank?: boolean
 }
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome, route: '/' },
-  { name: 'Blocks', icon: FiBox, route: '/blocks' },
-  { name: 'Validators', icon: FiCompass, route: '/validators' },
-  { name: 'Proposals', icon: FiStar, route: '/proposals' },
-  { name: 'Parameters', icon: FiSliders, route: '/parameters' },
+  { name: 'Home', icon: FaHome, route: '/' },
+  { name: 'Blocks', icon: BsBoxSeamFill, route: '/blocks' },
+  { name: 'Validators', icon: FaCompass, route: '/validators' },
+  { name: 'Proposals', icon: FaStar, route: '/proposals' },
+  { name: 'Parameters', icon: FaSlidersH, route: '/parameters' },
 ]
 const RefLinkItems: Array<LinkItemProps> = [
   {
-    name: 'EVM Explorer',
-    icon: FiGithub,
+    name: 'CVM Explorer',
+    icon: FaGithub,
     route: 'https://explorer.cosvm.net',
     isBlank: true,
   },
-
 ]
 
 export default function Sidebar({ children }: { children: ReactNode }) {
@@ -96,13 +98,6 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   const subsNewBlock = useSelector(selectSubsNewBlock)
   const subsTxEvent = useSelector(selectSubsTxEvent)
 
-  const handleDisconnect = () => {
-    subsNewBlock?.unsubscribe()
-    subsTxEvent?.unsubscribe()
-    window.localStorage.removeItem(LS_RPC_ADDRESS)
-    window.location.replace('/')
-  }
-
   return (
     <Box
       bg={useColorModeValue('light-container', 'dark-container')}
@@ -121,9 +116,13 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             mx="8"
             justifyContent="space-between"
           >
-            <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-              CVM Explorer
+            <Text fontSize="3xl" fontWeight="bold" color="light-theme">
+              CVM
             </Text>
+            <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
+              Explorer
+            </Text>
+
             <CloseButton
               display={{ base: 'flex', md: 'none' }}
               onClick={onClose}
@@ -156,7 +155,55 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
             </NavItem>
           ))}
         </Box>
-        
+        <Flex justifyContent="center" mb="4">
+          <Link href="https://twitter.com/CosvmLabs" isExternal>
+            <IconButton
+              as={FaTwitter}
+              aria-label="Twitter"
+              fontSize="lg"
+              colorScheme="gray"
+              borderRadius="full"
+              mr="2"
+              _hover={{ color: useColorModeValue('light-theme', 'dark-theme') }}
+            />
+          </Link>
+          <Link href="https://medium.com/@media.cosvm" isExternal>
+            <IconButton
+              as={FaMedium}
+              aria-label="Medium"
+              fontSize="lg"
+              colorScheme="gray"
+              borderRadius="full"
+              mr="2"
+              _hover={{ color: useColorModeValue('light-theme', 'dark-theme') }}
+            />
+          </Link>
+          <Link
+            href="https://www.facebook.com/people/CosVM/100094733726910/?mibextid=O4c6Bo"
+            isExternal
+          >
+            <IconButton
+              as={FaFacebook}
+              aria-label="Facebook"
+              fontSize="lg"
+              colorScheme="gray"
+              borderRadius="full"
+              mr="2"
+              _hover={{ color: useColorModeValue('light-theme', 'dark-theme') }}
+            />
+          </Link>
+          <Link href="https://www.reddit.com/user/CosVM/" isExternal>
+            <IconButton
+              as={FaReddit}
+              aria-label="Reddit"
+              fontSize="lg"
+              colorScheme="gray"
+              borderRadius="full"
+              mr="2"
+              _hover={{ color: useColorModeValue('light-theme', 'dark-theme') }}
+            />
+          </Link>
+        </Flex>
       </Flex>
     </Box>
   )
@@ -211,7 +258,7 @@ const NavItem = ({ icon, children, route, isBlank, ...rest }: NavItemProps) => {
         {icon && (
           <Icon
             mr="4"
-            fontSize="16"
+            fontSize="17"
             _groupHover={{
               color: isSelected
                 ? 'white'
